@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+ <!--Задание 1-->
+  <script>
+    let userName = prompt("Пожалуйста, введите ваше имя:");
+
+    if (userName) {
+      alert("Привет, " + userName + "!");
+      console.log("Имя пользователя: " + userName);
+    } else {
+      alert("Вы не ввели имя.");
+      console.log("Пользователь не ввел имя.");
+    }
+  </script>
+
+<!--Задание 2-->
+
+<script>
+  function checkAge() {
+    let age = prompt("Пожалуйста, введите ваш возраст:");
+
+    if (age !== null && !isNaN(age)) {
+
+      if (age >= 18) {
+        alert("Доступ разрешен.");
+      } else {
+        alert("Доступ запрещен.");
+      }
+    } else {
+      alert("Некорректный ввод возраста.");
+    }
+  }
+
+  checkAge();
+</script>
+
+<!--Задание 3-->
+
+<script>
+  function calculator() {
+    let num1 = prompt("Введите первое число:");
+    let num2 = prompt("Введите второе число:");
+
+    if (num1 !== null && !isNaN(num1) && num2 !== null && !isNaN(num2)) {
+      num1 = parseFloat(num1);
+      num2 = parseFloat(num2);
+
+      let sum = num1 + num2;
+      let difference = num1 - num2;
+      let product = num1 * num2;
+
+      let quotient;
+      if (num2 === 0) {
+        quotient = "Деление на ноль не производится";
+      } else {
+        quotient = num1 / num2;
+      }
+
+
+      console.log("Сумма: " + sum);
+      console.log("Разность: " + difference);
+      console.log("Произведение: " + product);
+      console.log("Частное: " + quotient);
+
+    } else {
+      console.log("Некорректный ввод чисел.");
+    }
+  }
+
+  calculator(); 
+</script>
+
+<!--Задание 4-->
+
+<script>
+  function guessNumberGame() {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    let userGuess;
+    do {
+      attempts++;
+      userGuess = prompt("Попытка №" + attempts + ": Угадайте число от 1 до 100:");
+
+      if (userGuess === null) {
+        alert("Игра отменена. Загаданное число было: " + randomNumber);
+        return;
+      }
+
+      if (isNaN(userGuess)) {
+        alert("Некорректный ввод. Введите заново.");
+        continue;
+      }
+
+      userGuess = parseInt(userGuess);
+
+      if (userGuess < randomNumber) {
+        alert("Загаданное число больше");
+      } else if (userGuess > randomNumber) {
+        alert("Загаданное число меньше");
+      }
+    } while (userGuess !== randomNumber);
+
+    alert("Вы угадали число " + randomNumber + " с " + attempts + " попытки.");
+  }
+
+  guessNumberGame();
+</script>
+
+</body>
+</html>
